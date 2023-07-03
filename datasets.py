@@ -93,7 +93,7 @@ class NER_Dataset(Dataset):
         
         #pad sequences
         input_ids = pad_sequence(input_ids, batch_first=True)
-        labels = pad_sequence(labels, pad_first = True)
+        labels = pad_sequence(labels, pad_first = True, padding_value = -100) #double check pad value
         attention_masks = pad_sequence(attention_masks, pad_first = True)
 
         return input_ids, labels, attention_masks
