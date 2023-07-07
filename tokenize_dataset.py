@@ -4,6 +4,7 @@ import epitran
 import panphon
 from transformers import AutoTokenizer
 from datasets import Dataset
+import argparse
 
 
 def process_file(df, filepath):
@@ -74,7 +75,7 @@ def tokenize(tokenizer, code, sentences):
         res["attention_masks"].append([1]*len(word_ids))
     return res
 
-def wrapper(code, tokenizer):
+def wrapper(code, tokenizer, tagmap):
     def tokenize_and_align_labels(examples):
         tokenized_inputs = tokenize(tokenizer, code, list(examples["Tokens"]))
         labels = []
@@ -93,10 +94,23 @@ def wrapper(code, tokenizer):
 
     return tokenize_and_align_labels
 
-tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-ukr_dataset = create_dataset("ukrainian")
-tagmap = create_tagmap("tag_map.txt")
-print(ukr_dataset[0])
-ukr_tokenized_dataset = ukr_dataset.map(wrapper("ukr-Cyrl", tokenizer), batched = True)
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("language", type = str)
+    parser.add_argument("code", type = str)
+    parser.add_argument("output", type = str)
 
-ukr_tokenized_dataset.to_csv("tester.csv")
+    args = parser.parse_args()
+
+    return (args.language, args.code, args.output)
+
+def main():
+    tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
+    tagmap = create_tagmap("tag_map.txt")
+    language, code, output = parse_args()
+    dataset = create_dataset(language)
+    tokenized_dataset = dataset.map(wrapper(code, tokenizer, tagmap), batched = True)
+    tokenized_dataset.to_csv(output)
+
+
+main()
