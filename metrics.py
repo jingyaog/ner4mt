@@ -1,5 +1,5 @@
 import seqeval
-from datasets import load_metric
+from ner_datasets import load_metric
 import numpy as np
 def compute_metrics(p):
     predictions, labels = p

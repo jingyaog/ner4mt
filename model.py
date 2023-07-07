@@ -1,5 +1,5 @@
 import torch
-from datasets import NER_Dataset
+from ner_datasets import NER_Dataset
 import os
 from transformers import BertTokenizer, BertModel
 from transformers import Trainer, TrainingArguments
