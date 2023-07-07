@@ -1,3 +1,7 @@
+"""
+to use script, please give: data subdirectory, Panphon code, and output path file
+"""
+
 import os
 import pandas as pd
 import epitran
@@ -110,7 +114,7 @@ def main():
     language, code, output = parse_args()
     dataset = create_dataset(language)
     tokenized_dataset = dataset.map(wrapper(code, tokenizer, tagmap), batched = True)
-    tokenized_dataset.to_csv(output)
+    tokenized_dataset.to_csv(f"data/{output}")
 
 
 main()

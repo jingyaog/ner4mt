@@ -1,0 +1,212 @@
+Свої	B-LOC
+домівки	I-LOC
+в	I-LOC
+Криму	I-LOC
+та	I-LOC
+на	I-LOC
+Донбасі	I-LOC
+залишили	O
+понад	O
+230	B-PER
+тисяч	I-PER
+осіб	I-PER
+
+Із	O
+окупованого	B-GPE
+Росією	I-GPE
+Криму	I-GPE
+і	O
+своїх	B-LOC
+домівок	I-LOC
+на	I-LOC
+Донбасі	I-LOC
+виїхали	O
+понад	B-PER
+230	I-PER
+тисяч	I-PER
+осіб	I-PER
+.	O
+
+Про	O
+це	O
+повідомили	O
+в	O
+Державній	B-ORG
+службі	I-ORG
+із	I-ORG
+надзвичайних	I-ORG
+ситуацій	I-ORG
+.	O
+
+Згідно	O
+з	O
+оперативною	O
+інформацією	O
+загальна	O
+кількість	O
+громадян	B-PER
+України	I-PER
+,	I-PER
+які	I-PER
+переселені	I-PER
+з	I-PER
+Автономної	I-PER
+Республіки	I-PER
+Крим	I-PER
+та	I-PER
+міста	I-PER
+Севастополь	I-PER
+до	I-PER
+інших	I-PER
+регіонів	I-PER
+,	O
+складає	O
+17	B-PER
+тис	I-PER
+.	I-PER
+
+172	I-PER
+осіб	I-PER
+,	I-PER
+у	I-PER
+тому	I-PER
+числі	I-PER
+4	I-PER
+тис	I-PER
+.	I-PER
+
+785	I-PER
+дитини	I-PER
+.	O
+
+З	O
+району	B-LOC
+проведення	I-LOC
+АТО	I-LOC
+до	O
+інших	B-LOC
+регіонів	I-LOC
+переселено	O
+198	B-PER
+тис	I-PER
+.	I-PER
+
+422	I-PER
+осіб	I-PER
+,	I-PER
+у	I-PER
+тому	I-PER
+числі	I-PER
+65	I-PER
+тис	I-PER
+.	I-PER
+
+144	I-PER
+дитини	I-PER
+.	O
+
+Серед	O
+них	B-PER
+тимчасово	B-PER
+переміщені	I-PER
+в	I-PER
+межах	I-PER
+Донецької	I-PER
+області	I-PER
+-	O
+61	B-PER
+тис	I-PER
+.	I-PER
+
+305	I-PER
+осіб	I-PER
+).	O
+
+За	O
+останню	O
+добу	O
+звідти	O
+виїхало	O
+-	O
+4725	B-PER
+осіб	I-PER
+.	O
+
+Всього	O
+тимчасово	O
+розміщено	O
+215	B-PER
+тис	I-PER
+.	I-PER
+
+594	I-PER
+особи	I-PER
+,	I-PER
+у	I-PER
+тому	I-PER
+числі	I-PER
+69	I-PER
+тис	I-PER
+.	I-PER
+
+929	I-PER
+дитини	I-PER
+,	I-PER
+27	I-PER
+тис	I-PER
+.	I-PER
+
+380	I-PER
+інвалідів	I-PER
+та	I-PER
+осіб	I-PER
+похилого	I-PER
+віку	I-PER
+.	O
+
+За	O
+добу	O
+–	O
+4740	B-PER
+осіб	I-PER
+.	O
+
+З	O
+урахуванням	O
+тимчасово	B-PER
+переміщених	I-PER
+в	I-PER
+межах	I-PER
+Луганської	I-PER
+області	I-PER
+(	O
+за	O
+повідомленням	O
+Голови	B-PER
+Луганської	I-PER
+ОДА	I-PER
+-	O
+15	B-PER
+тис	I-PER
+.	I-PER
+
+87	I-PER
+осіб	I-PER
+)	O
+загальна	O
+кількість	O
+внутрішньо	B-PER
+переміщених	I-PER
+осіб	I-PER
+становить	O
+230	B-PER
+тис	I-PER
+.	I-PER
+
+681	I-PER
+особа	I-PER
+.	O
+
+Українська	B-ORG
+правда	I-ORG
+
