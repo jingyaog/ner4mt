@@ -1,6 +1,3 @@
-"""
-to use script, please give: data subdirectory, Panphon code, and output path file
-"""
 
 import os
 import pandas as pd
@@ -8,8 +5,6 @@ import epitran
 import panphon
 from transformers import AutoTokenizer
 from datasets import Dataset
-import argparse
-
 
 def process_file(df, filepath):
     sentences = []
@@ -67,7 +62,7 @@ def tokenize(tokenizer, code, sentences):
             ipa = epi.transliterate(word)
             features = ft.word_to_vector_list(ipa, numeric = True)
             for feature in features:
-                input_ids.append(bit_list_to_integer(feature))
+                input_ids.append(bit_list_to_integer(feature[:16]))
                 word_ids.append(curr_word)
             curr_word += 1
         input_ids.insert(0, cls)
@@ -78,6 +73,12 @@ def tokenize(tokenizer, code, sentences):
         res["word_ids"].append(word_ids)
         res["attention_masks"].append([1]*len(word_ids))
     return res
+
+def truncate(example):
+    for k,v in example.items():
+        if isinstance(v, list):
+            example[k] = v[:200]
+    return example
 
 def wrapper(code, tokenizer, tagmap):
     def tokenize_and_align_labels(examples):
@@ -98,29 +99,3 @@ def wrapper(code, tokenizer, tagmap):
         return tokenized_inputs
 
     return tokenize_and_align_labels
-
-def truncate(example):
-    for k,v in example.items():
-        example[k] = v[:512]
-    return example
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("language", type = str)
-    parser.add_argument("code", type = str)
-    parser.add_argument("output", type = str)
-
-    args = parser.parse_args()
-
-    return (args.language, args.code, args.output)
-
-def main():
-    tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-    tagmap = create_tagmap("tag_map.txt")
-    language, code, output = parse_args()
-    dataset = create_dataset(language)
-    tokenized_dataset = dataset.map(wrapper(code, tokenizer, tagmap), batched = True)
-    tokenized_dataset.to_csv(f"data/{output}")
-
-
-main()
